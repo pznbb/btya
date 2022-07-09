@@ -1,0 +1,19 @@
+# Simple docker-compose.yml
+# You can change your port or volume location
+
+version: '3.3'
+
+services:
+  pgybt:
+    image: btpanel/baota:latest
+    container_name: baota
+    volumes:
+      - /home/website_data:/www/wwwroot
+      - /home/vhost:/www/server/panel/vhost
+    ports:
+      - 8888:8888  # <Host Port>:<Container Port>
+      - 22:22
+      - 443:443
+      - 80:80
+      
+    restart: always
